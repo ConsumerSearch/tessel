@@ -1,0 +1,19 @@
+{
+  "name": "tessel",
+  "version": "0.0.0",
+  "description": "This is a Tessel Hackathon experiment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ConsumerSearch/tessel.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ConsumerSearch/tessel/issues"
+  },
+  "homepage": "https://github.com/ConsumerSearch/tessel"
+}
