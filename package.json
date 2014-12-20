@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/ConsumerSearch/tessel/issues"
   },
-  "homepage": "https://github.com/ConsumerSearch/tessel"
+  "homepage": "https://github.com/ConsumerSearch/tessel",
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "grunt-shell": "^1.1.1",
+    "gulp": "^3.8.10",
+    "load-grunt-tasks": "^1.0.0"
+  }
 }
