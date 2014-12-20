@@ -1,2 +1,2 @@
 * * * * * /tmp/script.sh
-* * * * *  sleep 30; /tmp/script.sh
+* * * * *  sleep 5; /tmp/script.sh
