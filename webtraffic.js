@@ -21,7 +21,7 @@ http.get("http://104.236.148.218/data",
       body += d;
     });
     res.on('end', function() {
-      count = body.trim();
+      count = parseInt(body.trim());
       console.log(count);
     });
   }).on('error', function(e) {
@@ -32,16 +32,18 @@ relay.on('ready', function relayReady() {
   setInterval(function() {
     http.get("http://104.236.148.218/data",
       function(res) {
-        console.log("Got response: " + res.statusCode);
         var body = '';
         res.on('data', function(d) {
           body += d;
         });
         res.on('end', function() {
-          delta = count - Number(body.trim());
-          relay.on('latch', function(channel, value) {
+          var data = parseInt(body.trim());
+          delta = data - count;
+          count = data;
+          console.log(delta);
+          relay.getState(2, function(err, state) {
             if (delta > threshold) {
-              if (!value) {
+              if (!state) {
                 relay.toggle(2, function toggleTwoResult(err) {
                   if (err) {
                     console.log("Err toggling 2", err);
@@ -49,7 +51,7 @@ relay.on('ready', function relayReady() {
                 });
               }
             } else {
-              if (value) {
+              if (state) {
                 relay.toggle(2, function toggleTwoResult(err) {
                   if (err) {
                     console.log("Err toggling 2", err);
@@ -63,4 +65,4 @@ relay.on('ready', function relayReady() {
       console.log("Got error: " + e.message);
     });
   }, 5000);
-}); * /
+});
